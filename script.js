@@ -20,16 +20,22 @@ function check(value, todos) {
     return true
 
 }
+function display(todos) {
+    output.innerHTML = ''
+    for (let i = 0; i < todos.length; i++) {
+        output.innerHTML += `<div>${todos[i]}</div>
+        <button>Delete</button>`
+    }
 
+}
 function addTask() {
     const title = input.value.trim()
     if (check(title, todos)) {
         todos.push(title);
-        output.innerHTML += `<div>${title}</div>
-        <button>Delete</button>`
         console.log(todos);
         input.value = ''
     }
+    display(todos)
 }
 button.addEventListener("click", addTask);
 
