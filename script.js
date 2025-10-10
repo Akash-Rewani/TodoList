@@ -20,11 +20,17 @@ function check(value, todos) {
     return true
 
 }
+function deleteTask(i) {
+    todos.splice(i, 1)
+    display(todos)
+    console.log(todos);
+
+}
 function display(todos) {
     output.innerHTML = ''
     for (let i = 0; i < todos.length; i++) {
         output.innerHTML += `<div>${todos[i]}</div>
-        <button>Delete</button>`
+        <button onclick='deleteTask(${i})'>Delete</button>`
     }
 
 }
