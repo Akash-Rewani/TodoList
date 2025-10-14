@@ -12,7 +12,7 @@ function check(value, todos) {
 
     for (let i = 0; i < todos.length; i++) {
         if (todos[i] === value) {
-            alert("same task")
+            alert("Same Task")
             input.value = ''
             return false
         }
@@ -20,20 +20,27 @@ function check(value, todos) {
     return true
 
 }
+
 function deleteTask(i) {
     todos.splice(i, 1)
     display(todos)
     console.log(todos);
 
 }
+
 function display(todos) {
     output.innerHTML = ''
     for (let i = 0; i < todos.length; i++) {
-        output.innerHTML += `<div>${todos[i]}</div>
-        <button onclick='deleteTask(${i})'>Delete</button>`
+        output.innerHTML += `
+       <div class="todo-item">
+       <div>${todos[i]}</div>
+       <button onclick='deleteTask(${i})'>Delete</button>
+       </div>`;
+
     }
 
 }
+
 function addTask() {
     const title = input.value.trim()
     if (check(title, todos)) {
