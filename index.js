@@ -38,7 +38,7 @@ function check(value, todos) {
 function doneTask(i) {
     todos[i].completed = !todos[i].completed;
     if (todos[i].completed === true) {
-        showToast('Task Compeleted Done')
+        showToast('Task Completed Done')
     }
     else {
         showToast('Task Not Completed')
@@ -61,13 +61,13 @@ function display(todos) {
         const todoItem = document.createElement('div');
         todoItem.className = 'todo-item';
 
-     
+
         const taskText = document.createElement('div');
         taskText.className = 'task-text';
         taskText.textContent = todo.inputVal;
         if (todo.completed) taskText.classList.add('line');
 
-      
+
         const btnContainer = document.createElement('div');
         btnContainer.className = 'task-buttons';
 
