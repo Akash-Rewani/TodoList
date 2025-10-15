@@ -1,3 +1,7 @@
+/* Base Reset */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,27 +9,31 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0f0f0f;
-  color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
   padding: 48px 24px;
-  line-height: 1.6;
+  background-color: #E7F2EF;
+  
 }
+
+
 
 .container {
   width: 100%;
   max-width: 480px;
-  background: #1c1c1c;
+  background-color: #19183B;
   border-radius: 20px;
   padding: 32px 36px;
   display: flex;
   flex-direction: column;
   gap: 28px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.output::-webkit-scrollbar {
+  display: none; 
 }
 
 .input-section {
@@ -42,15 +50,13 @@ input[type="text"] {
   color: #ffffff;
   padding: 14px 16px;
   outline: none;
+  font-family: "Poppins", sans-serif;
 }
-
-
 
 .input-section button {
   padding: 14px;
-  background: #89e171;
+  background: #708993;
   color: #000000;
-  font-weight: 600;
   font-size: 16px;
   border: none;
   border-radius: 14px;
@@ -58,9 +64,6 @@ input[type="text"] {
   transition: background 0.3s ease;
 }
 
-.input-section button:hover {
-  background: #a5eb8d;
-}
 
 .output {
   max-height: 320px;
@@ -71,63 +74,91 @@ input[type="text"] {
   padding-right: 8px;
 }
 
+
 .todo-item {
-  background: #2d2d2d;
+  background-color: #2a2c2c;
   padding: 16px 20px;
   border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #e2e2e2;
-  font-weight: 600;
+  color: #ffffff;
   word-break: break-word;
   transition: background 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .todo-item:hover {
   background: #383838;
+  color: white;
 }
 
-.todo-item button {
-  background: #ef4444;
+
+.task-text {
+  flex: 1;
+}
+
+
+.task-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.task-buttons button {
+  background: #d67e7e;
   border: none;
   border-radius: 12px;
   padding: 8px 16px;
   font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
+  color: #373636;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+   font-family: "Poppins", sans-serif;
 }
 
-.todo-item button:hover {
-  background: #cc1f1f;
+.task-buttons button:first-child {
+  background-color: #d6cb68dc;
 }
+
+.task-buttons button:first-child:hover {
+  background-color: #7d8e3e;
+}
+
+.task-buttons button:last-child:hover {
+  background-color: #b96060;
+}
+
 
 .line {
   text-decoration: line-through;
-  opacity: 0.6;
+  color: rgb(241, 67, 67);
+  opacity: 0.4;
 }
 
-@media (min-width: 480px) {
-  .container {
-    padding: 28px 32px;
-  }
 
-  input[type="text"],
-  .input-section button {
-    font-size: 15px;
-    padding: 12px 14px;
-  }
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #A1C2BD;
+  color: #000000;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px 24px;
+  position: fixed;
+  bottom: 5%;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(100%);
+  /* Start off-screen to the right */
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
 
-  .todo-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
 
-  .todo-item button {
-    align-self: flex-end;
-    margin-left: 0;
-  }
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+ 
 }
