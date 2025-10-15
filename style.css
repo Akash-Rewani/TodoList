@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #121212;
-  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f0f0f;
+  color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,51 +19,47 @@ body {
 .container {
   width: 100%;
   max-width: 480px;
-  background: #1e1e1e;
-  border-radius: 24px;
+  background: #1c1c1c;
+  border-radius: 20px;
   padding: 32px 36px;
   display: flex;
   flex-direction: column;
   gap: 28px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .input-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 input[type="text"] {
-  padding: 18px 24px;
   font-size: 16px;
-  border-radius: 18px;
-  border: none;
-  background: #2a2a2a;
+  border-radius: 14px;
+  border: 2px solid #333;
+  background: #292929;
   color: #ffffff;
-}
-
-input[type="text"]::placeholder {
-  color: #b0b0b0;
-}
-
-input[type="text"]:focus {
+  padding: 14px 16px;
   outline: none;
-  background: #333333;
 }
+
+
 
 .input-section button {
-  padding: 16px 0;
+  padding: 14px;
   background: #89e171;
   color: #000000;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
   border: none;
-  border-radius: 18px;
+  border-radius: 14px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .input-section button:hover {
-  background: #b7e48f;
+  background: #a5eb8d;
 }
 
 .output {
@@ -71,57 +67,63 @@ input[type="text"]:focus {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding-right: 12px;
+  gap: 16px;
+  padding-right: 8px;
 }
 
 .todo-item {
-  background: #2a2a2a;
-  padding: 18px 24px;
-  border-radius: 20px;
+  background: #2d2d2d;
+  padding: 16px 20px;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #dddddd;
+  color: #e2e2e2;
   font-weight: 600;
   word-break: break-word;
+  transition: background 0.3s ease;
 }
 
 .todo-item:hover {
-  background: #333333;
+  background: #383838;
 }
 
 .todo-item button {
   background: #ef4444;
   border: none;
-  border-radius: 14px;
-  padding: 8px 18px;
-  font-size: 15px;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
-  margin-left: 20px;
+  transition: background 0.3s ease;
 }
 
 .todo-item button:hover {
-  background: #b91c1c;
+  background: #cc1f1f;
+}
+
+.line {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 @media (min-width: 480px) {
   .container {
-    padding: 24px 28px;
+    padding: 28px 32px;
   }
 
   input[type="text"],
   .input-section button {
     font-size: 15px;
-    padding: 14px 0;
+    padding: 12px 14px;
   }
 
   .todo-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
   }
 
   .todo-item button {

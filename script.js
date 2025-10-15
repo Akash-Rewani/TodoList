@@ -21,6 +21,13 @@ function check(value, todos) {
 
 }
 
+function doneTask(i) {
+    todos[i].completed = !todos[i].completed;
+    console.log(todos);
+    display(todos)
+
+}
+
 function deleteTask(i) {
     todos.splice(i, 1)
     display(todos)
@@ -33,7 +40,8 @@ function display(todos) {
     for (let i = 0; i < todos.length; i++) {
         output.innerHTML += `
        <div class="todo-item">
-       <div>${todos[i]}</div>
+         <div class='${todos[i].completed === true ? "line" : ""}'>${todos[i].inputVal}</div>
+       <button onclick='doneTask(${i})'>Done</button>
        <button onclick='deleteTask(${i})'>Delete</button>
        </div>`;
 
@@ -44,13 +52,30 @@ function display(todos) {
 function addTask() {
     const title = input.value.trim()
     if (check(title, todos)) {
-        todos.push(title);
+        todos.push({
+            inputVal: title,
+            completed: false,
+
+        });
         console.log(todos);
         input.value = ''
     }
     display(todos)
 }
 button.addEventListener("click", addTask);
+
+input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
+
+
+
+
+
+
+
 
 
 
